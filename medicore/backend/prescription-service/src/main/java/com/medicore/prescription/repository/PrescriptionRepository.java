@@ -1,0 +1,1 @@
+package com.medicore.prescription.repository; import com.medicore.prescription.entity.Prescription; import org.springframework.data.jpa.repository.JpaRepository; public interface PrescriptionRepository extends JpaRepository<Prescription,Long>{}

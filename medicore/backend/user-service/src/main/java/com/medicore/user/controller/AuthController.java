@@ -1,0 +1,3 @@
+package com.medicore.user.controller;
+import com.medicore.user.dto.*; import com.medicore.user.service.UserService; import jakarta.validation.Valid; import org.springframework.http.HttpStatus; import org.springframework.web.bind.annotation.*;
+@RestController @RequestMapping("/api/auth") public class AuthController {private final UserService service; public AuthController(UserService service){this.service=service;} @PostMapping("/register") @ResponseStatus(HttpStatus.CREATED) public UserResponse register(@Valid @RequestBody RegisterRequest r){return service.register(r);} @PostMapping("/login") public UserResponse login(@Valid @RequestBody LoginRequest r){return service.login(r);}}

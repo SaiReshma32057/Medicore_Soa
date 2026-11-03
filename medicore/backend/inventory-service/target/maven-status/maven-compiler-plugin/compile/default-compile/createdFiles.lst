@@ -1,0 +1,2 @@
+com\medicore\inventory\exception\InsufficientStockException.class
+com\medicore\inventory\service\InventoryService.class

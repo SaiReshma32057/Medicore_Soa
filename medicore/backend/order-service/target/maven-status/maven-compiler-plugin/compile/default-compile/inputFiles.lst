@@ -1,0 +1,13 @@
+C:\Users\SaiReshma\Desktop\All Folders\medicore\backend\order-service\src\main\java\com\medicore\order\dto\OrderRequest.java
+C:\Users\SaiReshma\Desktop\All Folders\medicore\backend\order-service\src\main\java\com\medicore\order\entity\OrderItem.java
+C:\Users\SaiReshma\Desktop\All Folders\medicore\backend\order-service\src\main\java\com\medicore\order\exception\GlobalExceptionHandler.java
+C:\Users\SaiReshma\Desktop\All Folders\medicore\backend\order-service\src\main\java\com\medicore\order\repository\OrderRepository.java
+C:\Users\SaiReshma\Desktop\All Folders\medicore\backend\order-service\src\main\java\com\medicore\order\dto\OrderResponse.java
+C:\Users\SaiReshma\Desktop\All Folders\medicore\backend\order-service\src\main\java\com\medicore\order\OrderServiceApplication.java
+C:\Users\SaiReshma\Desktop\All Folders\medicore\backend\order-service\src\main\java\com\medicore\order\client\InventoryClient.java
+C:\Users\SaiReshma\Desktop\All Folders\medicore\backend\order-service\src\main\java\com\medicore\order\controller\OrderController.java
+C:\Users\SaiReshma\Desktop\All Folders\medicore\backend\order-service\src\main\java\com\medicore\order\entity\Order.java
+C:\Users\SaiReshma\Desktop\All Folders\medicore\backend\order-service\src\main\java\com\medicore\order\dto\InventoryReservationResponse.java
+C:\Users\SaiReshma\Desktop\All Folders\medicore\backend\order-service\src\main\java\com\medicore\order\dto\InventoryReservationRequest.java
+C:\Users\SaiReshma\Desktop\All Folders\medicore\backend\order-service\src\main\java\com\medicore\order\dto\OrderItemRequest.java
+C:\Users\SaiReshma\Desktop\All Folders\medicore\backend\order-service\src\main\java\com\medicore\order\service\OrderService.java

@@ -1,0 +1,3 @@
+package com.medicore.inventory.exception;
+import org.springframework.http.*; import org.springframework.web.bind.annotation.*; import org.springframework.web.bind.MethodArgumentNotValidException; import java.util.Map;
+@RestControllerAdvice public class GlobalExceptionHandler { @ExceptionHandler(InsufficientStockException.class) ResponseEntity<Map<String,String>> conflict(InsufficientStockException e){return ResponseEntity.status(HttpStatus.CONFLICT).body(Map.of("error",e.getMessage()));} @ExceptionHandler({IllegalArgumentException.class,MethodArgumentNotValidException.class}) ResponseEntity<Map<String,String>> bad(Exception e){return ResponseEntity.badRequest().body(Map.of("error","Invalid inventory request"));} }

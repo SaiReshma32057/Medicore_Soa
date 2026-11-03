@@ -1,0 +1,1 @@
+package com.medicore.payment.service; import com.medicore.payment.repository.PaymentRepository; import org.junit.jupiter.api.Test; import static org.mockito.Mockito.mock; import static org.junit.jupiter.api.Assertions.assertNotNull; class PaymentServiceTest {@Test void serviceConstructs(){assertNotNull(new PaymentService(mock(PaymentRepository.class)));}}

@@ -1,0 +1,239 @@
+{
+  "tasks": [
+    {
+      "id": "T001",
+      "type": "setup",
+      "description": "Create exactly 11 independent service directories under backend and initialize each service with its own pom.xml.",
+      "requirements": "REQ-001, REQ-002, REQ-014",
+      "environmentConfiguration": null,
+      "skills": [{ "name": "spring-boot-maven-scaffolding", "location": "builtin" }],
+      "successCriteria": { "passBuild": "true", "passUnitTests": "true", "backendOnly": "true" }
+    },
+    {
+      "id": "T002",
+      "type": "setup",
+      "description": "Configure Java 17, Spring Boot 3.x, compatible Spring Cloud BOM, compiler settings, test dependencies, service ports, Eureka URL placeholders, and the exact MySQL/password properties in each applicable service application.properties.",
+      "requirements": "REQ-002, REQ-003, REQ-006",
+      "environmentConfiguration": "MYSQL_HOST, MYSQL_PORT, MYSQL_PASSWORD, EUREKA_CLIENT_SERVICEURL_DEFAULTZONE, JWT_SECRET, JWT_EXPIRATION_MS",
+      "skills": [{ "name": "spring-cloud-configuration", "location": "builtin" }],
+      "successCriteria": { "passBuild": "true", "passUnitTests": "true", "exactJdbcUrl": "true", "noHardcodedPassword": "true" }
+    },
+    {
+      "id": "T003",
+      "type": "implementation",
+      "description": "Implement eureka-server using com.medicore.eureka.EurekaServerApplication, Eureka Server enablement, registry properties, resources, and smoke test.",
+      "requirements": "REQ-001, REQ-002, REQ-003, REQ-010",
+      "environmentConfiguration": null,
+      "skills": [{ "name": "spring-cloud-eureka-server", "location": "builtin" }],
+      "successCriteria": { "passBuild": "true", "passUnitTests": "true", "requiredFilesPresent": "true" }
+    },
+    {
+      "id": "T004",
+      "type": "implementation",
+      "description": "Implement api-gateway with com.medicore.gateway.ApiGatewayApplication, GatewayRoutesConfig, CorrelationIdFilter, Eureka-backed routes for all domain services, resources, and smoke test.",
+      "requirements": "REQ-002, REQ-003, REQ-010",
+      "environmentConfiguration": null,
+      "skills": [{ "name": "spring-cloud-gateway", "location": "builtin" }],
+      "successCriteria": { "passBuild": "true", "passUnitTests": "true", "routesConfigured": "true" }
+    },
+    {
+      "id": "T005",
+      "type": "implementation",
+      "description": "Implement user-service entities, repository, RegisterRequest, LoginRequest, UserResponse, UserService, AuthController, UserController, and GlobalExceptionHandler with validated registration/login/profile behavior.",
+      "requirements": "REQ-005, REQ-007, REQ-010",
+      "environmentConfiguration": null,
+      "skills": [{ "name": "spring-data-jpa-validation", "location": "builtin" }],
+      "successCriteria": { "passBuild": "true", "passUnitTests": "true", "validatedApi": "true", "passwordHashing": "true" }
+    },
+    {
+      "id": "T006",
+      "type": "implementation",
+      "description": "Implement user-service SecurityConfig, JwtService, and JwtAuthenticationFilter with externalized JWT settings, BCrypt PasswordEncoder, bearer authentication, and protected endpoint rules.",
+      "requirements": "REQ-007",
+      "environmentConfiguration": "JWT_SECRET, JWT_EXPIRATION_MS",
+      "skills": [{ "name": "spring-security-jwt-bcrypt", "location": "builtin" }],
+      "successCriteria": { "passBuild": "true", "passUnitTests": "true", "bcryptUsed": "true", "jwtProtectedRoutes": "true", "noPasswordLeak": "true" }
+    },
+    {
+      "id": "T007",
+      "type": "test",
+      "description": "Add user-service smoke, UserServiceTest, and AuthControllerTest covering registration, duplicate email, BCrypt persistence, login JWT, validation, invalid JWT, and protected access.",
+      "requirements": "REQ-011",
+      "environmentConfiguration": null,
+      "skills": [{ "name": "spring-boot-testing", "location": "builtin" }],
+      "successCriteria": { "passBuild": "true", "passUnitTests": "true", "authCoverage": "true" }
+    },
+    {
+      "id": "T008",
+      "type": "implementation",
+      "description": "Implement medicine-service complete manifest with Medicine entity, repository, request/response DTOs, service, controller, GlobalExceptionHandler, application properties, and tests for validated catalog behavior.",
+      "requirements": "REQ-002, REQ-005, REQ-010, REQ-011",
+      "environmentConfiguration": null,
+      "skills": [{ "name": "spring-data-jpa-crud-validation", "location": "builtin" }],
+      "successCriteria": { "passBuild": "true", "passUnitTests": "true", "requiredFilesPresent": "true", "validatedCrud": "true" }
+    },
+    {
+      "id": "T009",
+      "type": "implementation",
+      "description": "Implement prescription-service complete manifest with Prescription entity, repository, request/response DTOs, service, controller, GlobalExceptionHandler, application properties, and scalar cross-service IDs.",
+      "requirements": "REQ-002, REQ-005, REQ-010",
+      "environmentConfiguration": null,
+      "skills": [{ "name": "spring-data-jpa-domain-service", "location": "builtin" }],
+      "successCriteria": { "passBuild": "true", "passUnitTests": "true", "noCrossServiceJpaRelationships": "true" }
+    },
+    {
+      "id": "T010",
+      "type": "test",
+      "description": "Add prescription-service smoke and service tests for valid creation, retrieval, status changes, scalar IDs, and validation failures.",
+      "requirements": "REQ-011",
+      "environmentConfiguration": null,
+      "skills": [{ "name": "spring-boot-testing", "location": "builtin" }],
+      "successCriteria": { "passBuild": "true", "passUnitTests": "true" }
+    },
+    {
+      "id": "T011",
+      "type": "implementation",
+      "description": "Implement inventory-service InventoryItem entity, InventoryRepository with a pessimistic write lock query, request/response DTOs, InventoryService, controller, InsufficientStockException, GlobalExceptionHandler, resources, and tests.",
+      "requirements": "REQ-002, REQ-005, REQ-008, REQ-010",
+      "environmentConfiguration": null,
+      "skills": [{ "name": "spring-jpa-pessimistic-locking", "location": "builtin" }],
+      "successCriteria": { "passBuild": "true", "passUnitTests": "true", "pessimisticLock": "true", "transactionalMutations": "true", "negativeStockPrevented": "true", "insufficientStockStatus": "409" }
+    },
+    {
+      "id": "T012",
+      "type": "test",
+      "description": "Add inventory-service tests for successful reserve/release/adjust, invalid quantities, insufficient stock HTTP 409, rollback/no partial mutation, and nonnegative stock invariants.",
+      "requirements": "REQ-008, REQ-011",
+      "environmentConfiguration": null,
+      "skills": [{ "name": "spring-boot-testing", "location": "builtin" }],
+      "successCriteria": { "passBuild": "true", "passUnitTests": "true", "insufficientStockCovered": "true" }
+    },
+    {
+      "id": "T013",
+      "type": "implementation",
+      "description": "Implement order-service Order and OrderItem entities with scalar medicine IDs, repository, request/response and inventory reservation DTOs, InventoryClient Feign interface, OrderService, OrderController, GlobalExceptionHandler, resources, and smoke test.",
+      "requirements": "REQ-002, REQ-004, REQ-005, REQ-009, REQ-010",
+      "environmentConfiguration": "INVENTORY_SERVICE_NAME=inventory-service",
+      "skills": [{ "name": "spring-cloud-openfeign", "location": "builtin" }],
+      "successCriteria": { "passBuild": "true", "passUnitTests": "true", "feignClientUsesServiceId": "true", "noCrossServiceJpaRelationships": "true" }
+    },
+    {
+      "id": "T014",
+      "type": "test",
+      "description": "Add order-service tests mocking InventoryClient for successful reservation, inventory 409 propagation, downstream failure, validation, and order persistence behavior.",
+      "requirements": "REQ-009, REQ-011",
+      "environmentConfiguration": null,
+      "skills": [{ "name": "spring-cloud-contract-boundary-testing", "location": "builtin" }],
+      "successCriteria": { "passBuild": "true", "passUnitTests": "true", "feignBoundaryCovered": "true", "conflictPreserved": "true" }
+    },
+    {
+      "id": "T015",
+      "type": "implementation",
+      "description": "Implement payment-service complete manifest with Payment entity, repository, request/response DTOs, service, controller, GlobalExceptionHandler, resources, and real payment state transitions.",
+      "requirements": "REQ-002, REQ-005, REQ-010",
+      "environmentConfiguration": null,
+      "skills": [{ "name": "spring-data-jpa-state-machine", "location": "builtin" }],
+      "successCriteria": { "passBuild": "true", "passUnitTests": "true", "realStateTransitions": "true" }
+    },
+    {
+      "id": "T016",
+      "type": "implementation",
+      "description": "Implement fulfillment-service complete manifest with Fulfillment entity, repository, request/response DTOs, service, controller, GlobalExceptionHandler, resources, and real fulfillment state transitions.",
+      "requirements": "REQ-002, REQ-005, REQ-010",
+      "environmentConfiguration": null,
+      "skills": [{ "name": "spring-data-jpa-state-machine", "location": "builtin" }],
+      "successCriteria": { "passBuild": "true", "passUnitTests": "true", "realStateTransitions": "true" }
+    },
+    {
+      "id": "T017",
+      "type": "implementation",
+      "description": "Implement delivery-service complete manifest with Delivery entity, repository, request/response DTOs, service, controller, GlobalExceptionHandler, resources, and delivery tracking/status transitions.",
+      "requirements": "REQ-002, REQ-005, REQ-010",
+      "environmentConfiguration": null,
+      "skills": [{ "name": "spring-data-jpa-state-machine", "location": "builtin" }],
+      "successCriteria": { "passBuild": "true", "passUnitTests": "true", "trackingImplemented": "true" }
+    },
+    {
+      "id": "T018",
+      "type": "implementation",
+      "description": "Implement notification-service complete manifest with Notification entity, repository, request/response DTOs, service, controller, GlobalExceptionHandler, resources, and notification dispatch/state behavior.",
+      "requirements": "REQ-002, REQ-005, REQ-010",
+      "environmentConfiguration": null,
+      "skills": [{ "name": "spring-data-jpa-domain-service", "location": "builtin" }],
+      "successCriteria": { "passBuild": "true", "passUnitTests": "true", "realNotificationState": "true" }
+    },
+    {
+      "id": "T019",
+      "type": "test",
+      "description": "Add payment, fulfillment, delivery, and notification smoke/service tests for creation, retrieval, valid transitions, invalid transitions, validation, and persistence boundaries.",
+      "requirements": "REQ-011",
+      "environmentConfiguration": null,
+      "skills": [{ "name": "spring-boot-testing", "location": "builtin" }],
+      "successCriteria": { "passBuild": "true", "passUnitTests": "true", "allOperationalServicesCovered": "true" }
+    },
+    {
+      "id": "T020",
+      "type": "documentation",
+      "description": "Add consistent validation and exception JSON responses, actuator health settings, and logging-safe properties to every service without introducing cross-service JPA relationships.",
+      "requirements": "REQ-005, REQ-006, REQ-010, REQ-014",
+      "environmentConfiguration": null,
+      "skills": [{ "name": "spring-boot-operational-config", "location": "builtin" }],
+      "successCriteria": { "passBuild": "true", "passUnitTests": "true", "consistentErrors": "true" }
+    },
+    {
+      "id": "T021",
+      "type": "documentation",
+      "description": "Write backend/README.md with architecture, service responsibilities/ports, environment variables, MySQL setup, startup order, independent Maven run/test steps, JWT example, medicine/order/inventory examples, and HTTP 409 semantics.",
+      "requirements": "REQ-012, REQ-014",
+      "environmentConfiguration": null,
+      "skills": [{ "name": "backend-documentation", "location": "builtin" }],
+      "successCriteria": { "readmePresent": "true", "apiExamplesPresent": "true", "backendOnly": "true" }
+    },
+    {
+      "id": "T022",
+      "type": "validation",
+      "description": "Run mvn -q compile independently from eureka-server, api-gateway, user-service, medicine-service, inventory-service, order-service, prescription-service, payment-service, fulfillment-service, delivery-service, and notification-service; repair backend-only compile errors.",
+      "requirements": "REQ-013, REQ-014",
+      "environmentConfiguration": null,
+      "skills": [{ "name": "maven-validation", "location": "builtin" }],
+      "successCriteria": { "all11Compile": "true", "backendOnly": "true" }
+    },
+    {
+      "id": "T023",
+      "type": "validation",
+      "description": "Run mvn -q test independently for all 11 service directories; repair failing backend tests and rerun until every service passes.",
+      "requirements": "REQ-011, REQ-013, REQ-014",
+      "environmentConfiguration": null,
+      "skills": [{ "name": "maven-test-validation", "location": "builtin" }],
+      "successCriteria": { "all11TestsPass": "true", "backendOnly": "true" }
+    },
+    {
+      "id": "T024",
+      "type": "validation",
+      "description": "Verify every mandatory file in plan.md exists with real compiling implementation code and verify package declarations match paths.",
+      "requirements": "REQ-001, REQ-002, REQ-010, REQ-013",
+      "environmentConfiguration": null,
+      "skills": [{ "name": "manifest-completeness-validation", "location": "builtin" }],
+      "successCriteria": { "allRequiredFilesPresent": "true", "packagesMatchPaths": "true" }
+    },
+    {
+      "id": "T025",
+      "type": "validation",
+      "description": "Perform final scope/security checks: confirm created or modified paths are all under backend, exact JDBC URL is present, MYSQL_PASSWORD is externalized, and no hardcoded password exists.",
+      "requirements": "REQ-006, REQ-013, REQ-014",
+      "environmentConfiguration": null,
+      "skills": [{ "name": "backend-scope-security-validation", "location": "builtin" }],
+      "successCriteria": { "backendOnly": "true", "exactJdbcUrl": "true", "noHardcodedPassword": "true" }
+    }
+  ],
+  "metadata": {
+    "language": "java",
+    "planName": "medicore-backend-11-spring-boot-services",
+    "projectName": "medicore",
+    "createdAt": "2026-09-22",
+    "version": "1.0",
+    "artifactPath": "backend/",
+    "executionMode": "plan-only",
+    "scopeConstraint": "Do not modify outside backend/"
+  }
+}

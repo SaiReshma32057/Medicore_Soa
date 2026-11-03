@@ -1,0 +1,3 @@
+package com.medicore.inventory.entity;
+import jakarta.persistence.*;
+@Entity @Table(name="inventory_items") public class InventoryItem { @Id @GeneratedValue(strategy=GenerationType.IDENTITY) private Long id; @Column(nullable=false,unique=true) private Long medicineId; @Column(nullable=false) private int quantity; protected InventoryItem(){} public InventoryItem(Long medicineId,int quantity){this.medicineId=medicineId;this.quantity=quantity;} public Long getId(){return id;} public Long getMedicineId(){return medicineId;} public int getQuantity(){return quantity;} public void setQuantity(int quantity){this.quantity=quantity;} }

@@ -1,0 +1,3 @@
+package com.medicore.inventory.service;
+import com.medicore.inventory.entity.InventoryItem; import com.medicore.inventory.exception.InsufficientStockException; import com.medicore.inventory.repository.InventoryRepository; import org.junit.jupiter.api.Test; import java.util.Optional; import static org.junit.jupiter.api.Assertions.assertThrows; import static org.mockito.Mockito.*;
+class InventoryServiceTest { @Test void insufficientStockDoesNotSave(){InventoryRepository r=mock(InventoryRepository.class);when(r.findForUpdate(1L)).thenReturn(Optional.of(new InventoryItem(1L,2)));InventoryService s=new InventoryService(r);assertThrows(InsufficientStockException.class,()->s.reserve(1L,3));verify(r,never()).save(any());} }

@@ -1,0 +1,1 @@
+package com.medicore.fulfillment.repository; import com.medicore.fulfillment.entity.Fulfillment; import org.springframework.data.jpa.repository.JpaRepository; public interface FulfillmentRepository extends JpaRepository<Fulfillment,Long>{}

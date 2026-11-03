@@ -1,0 +1,2 @@
+com\medicore\gateway\filter\CorrelationIdFilter.class
+com\medicore\gateway\filter\JwtGatewayFilter.class

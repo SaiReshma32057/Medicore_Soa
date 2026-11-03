@@ -1,0 +1,1 @@
+package com.medicore.prescription.dto; import jakarta.validation.constraints.*; public record PrescriptionRequest(@NotNull Long userId,@NotNull Long orderId,@NotNull Long medicineId,@NotBlank String instructions){}

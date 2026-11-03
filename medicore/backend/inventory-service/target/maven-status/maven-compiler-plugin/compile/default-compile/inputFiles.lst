@@ -1,0 +1,9 @@
+C:\Users\SaiReshma\Desktop\All Folders\medicore\backend\inventory-service\src\main\java\com\medicore\inventory\controller\InventoryController.java
+C:\Users\SaiReshma\Desktop\All Folders\medicore\backend\inventory-service\src\main\java\com\medicore\inventory\exception\InsufficientStockException.java
+C:\Users\SaiReshma\Desktop\All Folders\medicore\backend\inventory-service\src\main\java\com\medicore\inventory\dto\InventoryRequest.java
+C:\Users\SaiReshma\Desktop\All Folders\medicore\backend\inventory-service\src\main\java\com\medicore\inventory\exception\GlobalExceptionHandler.java
+C:\Users\SaiReshma\Desktop\All Folders\medicore\backend\inventory-service\src\main\java\com\medicore\inventory\InventoryServiceApplication.java
+C:\Users\SaiReshma\Desktop\All Folders\medicore\backend\inventory-service\src\main\java\com\medicore\inventory\service\InventoryService.java
+C:\Users\SaiReshma\Desktop\All Folders\medicore\backend\inventory-service\src\main\java\com\medicore\inventory\entity\InventoryItem.java
+C:\Users\SaiReshma\Desktop\All Folders\medicore\backend\inventory-service\src\main\java\com\medicore\inventory\repository\InventoryRepository.java
+C:\Users\SaiReshma\Desktop\All Folders\medicore\backend\inventory-service\src\main\java\com\medicore\inventory\dto\InventoryResponse.java

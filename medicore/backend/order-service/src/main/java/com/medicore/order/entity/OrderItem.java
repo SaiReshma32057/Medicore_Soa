@@ -1,0 +1,1 @@
+package com.medicore.order.entity; import jakarta.persistence.*; @Embeddable public class OrderItem {private Long medicineId; private int quantity; protected OrderItem(){} public OrderItem(Long medicineId,int quantity){this.medicineId=medicineId;this.quantity=quantity;} public Long getMedicineId(){return medicineId;} public int getQuantity(){return quantity;}}

@@ -1,0 +1,4 @@
+-------------------------------------------------------------------------------
+Test set: com.medicore.payment.service.PaymentServiceTest
+-------------------------------------------------------------------------------
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 2.215 s -- in com.medicore.payment.service.PaymentServiceTest

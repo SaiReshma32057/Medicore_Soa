@@ -1,0 +1,1 @@
+package com.medicore.fulfillment.service; import com.medicore.fulfillment.repository.FulfillmentRepository; import org.junit.jupiter.api.Test; import static org.mockito.Mockito.mock; import static org.junit.jupiter.api.Assertions.assertNotNull; class FulfillmentServiceTest {@Test void serviceConstructs(){assertNotNull(new FulfillmentService(mock(FulfillmentRepository.class)));}}

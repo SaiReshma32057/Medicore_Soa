@@ -1,0 +1,1 @@
+package com.medicore.order.dto; import jakarta.validation.Valid; import jakarta.validation.constraints.*; import java.util.List; public record OrderRequest(@NotNull Long userId,@NotEmpty List<@Valid OrderItemRequest> items){}
